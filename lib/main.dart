@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:super_pro/screens/home_page/home.dart';
+import 'package:super_pro/screens/new_product/new_product_page.dart';
+import 'package:super_pro/screens/settings/setting_page.dart';
 import 'package:super_pro/services/auth.dart';
 
 import './screens/landing_page.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
           // the default landing route
           '/': (context) => LandingPage(),
           HomePage.routeName: (context) => HomePage(),
+          NewProductPage.routeName: (context) => NewProductPage(),
+          SettingsPage.routeName:(context) => SettingsPage(),
         },
       ),
     );

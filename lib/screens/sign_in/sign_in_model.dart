@@ -60,7 +60,7 @@ class SignInModel with StringsValidators, ChangeNotifier {
     //bool that returns true if submitted is true and email is not valid
     bool showError = submitted && !emailValidator.isEmailValid(email);
     //if showError is true, return email error text else return null
-    return showError ? emailErrorText : null;
+    return showError ? invalidEmailErrorText : null;
   }
 
 //method that toggles the form type
@@ -120,7 +120,11 @@ class SignInModel with StringsValidators, ChangeNotifier {
         await auth.createUserWithEmailAndPassword(email, password);
         //update the isLoading to false, FormType to Sign in, password and
         // email to ''
-        updateWith(isLoading: false, formType: SignInFormType.signIn, password: '', email: '');
+        updateWith(
+            isLoading: false,
+            formType: SignInFormType.signIn,
+            password: '',
+            email: '');
       }
     } catch (e) {
       print('Error:${e.message}');
